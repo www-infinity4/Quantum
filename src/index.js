@@ -5,3 +5,4 @@ export {createHttpAdapter} from "./adapters/http.js";
 export {createMemoryAdapter} from "./adapters/memory.js";
 export {createMovementHistory} from "./history.js";
 export {validateTransfer,preserveQuantAuthority} from "./guards.js";
+export {createRouteAPI} from "./route-api.js";
