@@ -1,0 +1,2 @@
+const clean=v=>String(v??"").trim();
+export function createEnvelope({from,to,kind="data",payload,metadata={}}={}){from=clean(from);to=clean(to);if(!from||!to)throw new TypeError("quantum_route_required");if(payload===undefined)throw new TypeError("quantum_payload_required");const createdAt=new Date().toISOString();const id=metadata.actionId||["quantum",from,to,kind,createdAt].join(":");return {schema:"quantum-transfer/v1",id,from,to,kind:clean(kind)||"data",payload,metadata:{...metadata},createdAt};}
