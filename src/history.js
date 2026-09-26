@@ -1,0 +1,1 @@
+export function createMovementHistory(){const events=[];return {record(envelope,status="accepted",detail={}){const event={movementId:envelope.id,from:envelope.from,to:envelope.to,kind:envelope.kind,status,at:new Date().toISOString(),...detail};events.push(event);return event;},forMovement(id){return events.filter(e=>e.movementId===id);},all(){return [...events];}};}
