@@ -1,0 +1,2 @@
+export function validateTransfer(envelope){if(!envelope||envelope.schema!=="quantum-transfer/v1")throw new TypeError("invalid_quantum_envelope");if(!envelope.from||!envelope.to)throw new TypeError("quantum_route_required");if(!["quant","data"].includes(envelope.kind))throw new TypeError("quantum_kind_invalid");return envelope;}
+export function preserveQuantAuthority(envelope){if(envelope.kind!=="quant")return envelope;const q=envelope.payload;if(!q||typeof q!=="object")throw new TypeError("quant_payload_required");return envelope;}
